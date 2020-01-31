@@ -91,5 +91,8 @@ def checkout(cart, coupons)
     total += (applied_clearance[index][:count] * applied_clearance[index][:price])
     index += 1
   end
+  if(total > 100)
+    total = total - (.1 * total)
+  end
   return total
 end

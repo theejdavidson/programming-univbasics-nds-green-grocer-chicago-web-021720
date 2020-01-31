@@ -44,7 +44,7 @@ def apply_coupons(cart, coupons)
   while coupons_index < coupons.length do
     cart_index = 0
     while cart_index < cart.length do
-            if(cart[cart_index][:item] == coupons[coupons_index][:item])
+            if(cart[cart_index][:item] == coupons[coupons_index][:item] && cart[cart_index][:count] >= coupons[coupons_index][:num])
               cart[cart_index][:count] -= coupons[coupons_index][:num]
               cart << {:item => "#{cart[cart_index][:item]} W/COUPON", :price => (coupons[coupons_index][:cost] / coupons[coupons_index][:num]), :clearance => cart[cart_index][:clearance], :count => coupons[coupons_index][:num]}
             end
